@@ -1,0 +1,65 @@
+Wilks Calculator App
+========================================================
+author: David Tran
+date: 2015-09-27
+
+Why use this App
+========================================================
+
+Let's say your friend can bench 200 pounds and you can only bench 180 pounds. But the thing is, he weights 250 pounds and you weight a modest 175 pounds. You want to show him you are the stronger person pound per pound!
+
+Then you need to use this app! This app uses a universally recognized coefficient called "Wilks" that is used in numerous competitions around the world to measure the power of individuals.
+
+Alright, What do I need to use this App?
+========================================================
+
+Now you are convinced!
+
+To measure one's 'Wilks', they only need the weight they were when they performed the lift and the weight of the lift. Since this is normally used in competitions, there are usually 3 lifts but 1 is perfectally fine for comparison.
+
+- Your own weight (in pounds)
+- The weight you squatted (in pounds)
+- The weight you benched (in pounds)
+- The weight you deadlifted (in pounds)
+
+But sir, how is Wilks calculated?
+========================================================
+
+I am glad you asked! It uses a bunch of coefficients and your weight. Let's use your weight (175lbs) and your friends (250lbs) as an example. Note the formula uses kilograms so we must convert first!
+
+```r
+w <- 175 / 2.20462
+coef <- 500 / (-216.0475144 + 16.2606339 * w - 0.002388645 * w^2 - 0.00113732 * w^3 + 0.00000701863 * w^4 - 0.000000001291 * w^5)
+coef
+```
+
+```
+[1] 0.6532604
+```
+
+
+```
+[1] 0.465075
+```
+
+So am I the stronger one?
+========================================================
+
+
+```r
+coef * 180
+```
+
+```
+[1] 117.5869
+```
+
+```r
+coef2 * 200
+```
+
+```
+[1] 93.01501
+```
+
+Yes Johnny, you can now show off to your friend that you are stronger! Just remember... he is still _absolutely_ stronger than you and 250lbs is still greater than 175lbs...
